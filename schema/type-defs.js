@@ -24,6 +24,23 @@ const typeDefs = gql`
     isInTheaters: Boolean!
   }
 
+  input CreateUserInput {
+    name: String!
+    username: String!
+    age: Int!
+    nationality: Nationality = BRAZIL
+  }
+
+  input updateUserNameInput {
+    id: ID!
+    newUsername: String!
+  }
+
+   type Mutation {
+    createUser(input: CreateUserInput!): User,
+    updateUserName(input:updateUserNameInput!):User,
+    deleteUser(id: ID!):User
+   }
    enum Nationality {
     CANADA
     BRAZIL
